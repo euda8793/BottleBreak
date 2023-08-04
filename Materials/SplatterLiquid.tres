@@ -1,0 +1,8 @@
+[gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://dl1pk38vri48p"]
+
+[ext_resource type="Material" uid="uid://1eksced5qkft" path="res://Materials/BottleLiquidMaterial.tres" id="1_y7r4q"]
+
+[resource]
+material = ExtResource("1_y7r4q")
+radius = 0.26
+height = 0.415

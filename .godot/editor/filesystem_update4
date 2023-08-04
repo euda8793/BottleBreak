@@ -1,0 +1,15 @@
+res://Materials/Glass.tres
+res://Meshes/Bottle.res
+res://Materials/BottleProcessor.tres
+res://Materials/CorkShader.tres
+res://Meshes/Cork.res
+res://Materials/BottleLiquidShader.tres
+res://Meshes/BottleLiquid.res
+res://Materials/BottleLiquidMaterial.tres
+res://Meshes/SkinnyBottle.res
+res://Meshes/SkinnyBottlecork.res
+res://Meshes/SkinnyBottleLiquid.res
+res://Materials/Cork.tres
+res://NavTest.tscn
+res://BottleMonster.tscn
+res://Meshes/IKNavGrid.res

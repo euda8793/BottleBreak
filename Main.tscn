@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2gv5em73kvmj"]
+
+[ext_resource type="PackedScene" uid="uid://c2typ3j3skbpu" path="res://BottleGenerator.tscn" id="1_n6p2n"]
+[ext_resource type="Script" path="res://Gimbal.gd" id="2_f8awo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wfyd1"]
+size = Vector3(31.825, 1.055, 19.605)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dkona"]
+sky_top_color = Color(0.403922, 0.772549, 0.862745, 1)
+sky_horizon_color = Color(0.721569, 0.780392, 0.819608, 1)
+
+[sub_resource type="Sky" id="Sky_5w5nu"]
+sky_material = SubResource("ProceduralSkyMaterial_dkona")
+
+[sub_resource type="Environment" id="Environment_hs8v2"]
+background_mode = 2
+sky = SubResource("Sky_5w5nu")
+
+[node name="Main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.78438, 0)
+mesh = SubResource("BoxMesh_wfyd1")
+skeleton = NodePath("../BottleGenerator")
+
+[node name="BottleGenerator" parent="." instance=ExtResource("1_n6p2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 24.9002, 0)
+
+[node name="BottleGenerator2" parent="." instance=ExtResource("1_n6p2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.554, 24.9002, -1.35057)
+
+[node name="BottleGenerator3" parent="." instance=ExtResource("1_n6p2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.287322, 24.9002, 3.64943)
+preprocess = 0.7
+
+[node name="BottleGenerator4" parent="." instance=ExtResource("1_n6p2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.97664, 24.9002, -1.35057)
+preprocess = 0.2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.175234, -0.468287, 0.5, 0.303515, 0.811097, 0, -0.936574, 0.350469, -9, 11, 3)
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+offset_left = 51.0
+offset_top = 39.0
+offset_right = 136.0
+offset_bottom = 120.0
+text = "Pick Color"
+color = Color(0.937255, 0.937255, 0.937255, 1)
+
+[node name="Gimbal_Y" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+script = ExtResource("2_f8awo")
+
+[node name="Gimbal_X" type="Node3D" parent="Gimbal_Y"]
+
+[node name="Camera3D" type="Camera3D" parent="Gimbal_Y/Gimbal_X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.4734)
+environment = SubResource("Environment_hs8v2")
+current = true
+
+[connection signal="color_changed" from="ColorPickerButton" to="BottleGenerator" method="_on_color_picker_button_color_changed"]

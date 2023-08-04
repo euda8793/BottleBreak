@@ -1,0 +1,11 @@
+MeshInstance3D
+NavigationObstacle3D
+Node3D
+SkeletonIK3D
+Skeleton3D
+AnimationPlayer
+ColorPickerButton
+DirectionalLight3D
+GPUParticlesCollisionBox3D
+Camera3D
+GPUParticles3D
